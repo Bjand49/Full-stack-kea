@@ -21,10 +21,6 @@ interface Game {
   name: String
 }
 
-const setGames = () => {
-  return instance.get("/games")
-}
-
 function App() {
   const [games, setGames] = useState<Game[]>([])
   useEffect (() => {
