@@ -4,9 +4,9 @@ import ColorSwitch from "./ColorSwitch"
 
 const NavBar = () => {
     return <HStack justifyContent="space-between">
-        <Image src={logo} boxSize={10}/>
+        <Image src={logo} boxSize={10} />
         <h2>header</h2>
-        <ColorSwitch/>
+        <ColorSwitch />
     </HStack>
 }
 export default NavBar
