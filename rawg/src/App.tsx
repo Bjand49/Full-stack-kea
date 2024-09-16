@@ -1,33 +1,9 @@
 import { Grid, GridItem } from "@chakra-ui/react"
 import NavBar from "./components/navbar"
-import axios from "axios"
-import { useEffect, useState } from "react";
-
-const instance = axios.create({
-  baseURL: "https://api.rawg.io/api",
-  timeout: 1000,
-  params: {
-    key: import.meta.env.VITE_API_KEY
-  }
-});
-
-interface GameResult {
-  id: Number,
-  results: Game[]
-}
-
-interface Game {
-  id: Number,
-  name: String
-}
+import GameGrid from "./components/GameGrid"
+import GenreList from "./components/GenreList"
 
 function App() {
-  const [games, setGames] = useState<Game[]>([])
-  useEffect (() => {
-    instance.get<GameResult>("/games")
-    .then((response)=> setGames(response.data.results))
-    .catch((error) => console.log(error))
-  },[])
   return (
     <Grid
       templateAreas={`"header header"
@@ -44,13 +20,10 @@ function App() {
         <NavBar />
       </GridItem>
       <GridItem pl='2' bg='pink.300' area={'nav'}>
-        Nav
+        <GenreList/>
       </GridItem>
       <GridItem pl='2' bg='green.300' area={'main'}>
-        <ul>
-          <li>test</li>
-          {games.map(g => (<li>{g.name}</li>))}
-        </ul>
+        <GameGrid/>
       </GridItem>
       <GridItem pl='2' bg='blue.300' area={'footer'}>
         Footer
