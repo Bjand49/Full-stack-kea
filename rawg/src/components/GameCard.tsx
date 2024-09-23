@@ -1,4 +1,4 @@
-import { Card, CardBody, Image, Heading, HStack, Flex, Spacer, SkeletonText } from "@chakra-ui/react"
+import { Card, CardBody, Image, Heading, Flex, Spacer } from "@chakra-ui/react"
 import { Game } from "../hooks/useGames"
 import PlatformList from "./PlatformList"
 import MetaScoreBox from "./MetaScoreBox"
